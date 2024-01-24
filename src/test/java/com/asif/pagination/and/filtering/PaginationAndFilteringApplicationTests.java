@@ -1,0 +1,13 @@
+package com.asif.pagination.and.filtering;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class PaginationAndFilteringApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
