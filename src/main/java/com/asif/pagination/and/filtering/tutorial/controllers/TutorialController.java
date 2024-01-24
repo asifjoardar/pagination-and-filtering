@@ -100,4 +100,21 @@ public class TutorialController {
 
         return "redirect:/tutorials";
     }
+
+    @PostMapping("/{id}/published/{status}")
+    public String updatePublishedStatus(@PathVariable("id") Integer id, @PathVariable("status") boolean published,
+                                        Model model, RedirectAttributes redirectAttributes) {
+        try {
+            tutorialService.updatePublishedStatus(id, published);
+
+            String status = published ? "published" : "disabled";
+            String message = "The Tutorial id=" + id + " has been " + status;
+
+            redirectAttributes.addFlashAttribute("message", message);
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("message", e.getMessage());
+        }
+
+        return "redirect:/tutorials";
+    }
 }

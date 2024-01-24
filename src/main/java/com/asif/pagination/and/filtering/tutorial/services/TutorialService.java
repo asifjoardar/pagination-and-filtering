@@ -53,4 +53,8 @@ public class TutorialService {
     public void deletedById(Integer id) {
         tutorialRepository.deleteById(id);
     }
+
+    public void updatePublishedStatus(Integer id, boolean status) {
+        tutorialRepository.updatePublishedStatus(id, status);
+    }
 }
