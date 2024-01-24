@@ -81,7 +81,7 @@
                        th:href="@{'/tutorials/' + ${tutorial.id} + '/published/true'}" title="Enable this tutorial"></a>
                 </td>
                 <td>
-                    <a th:href="@{'/tutorials/' + ${tutorial.id}}" title="Edit this tutorial"
+                    <a th:href="@{'/tutorials/edit/' + ${tutorial.id}}" title="Edit this tutorial"
                        class="fa-regular fa-pen-to-square icon-dark"></a>
                     &nbsp;
                     <a th:href="@{'/tutorials/delete/' + ${tutorial.id}}" th:tutorialTitle="${tutorial.title}" id="btnDelete"
