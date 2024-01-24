@@ -14,12 +14,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/tutorials")
 @AllArgsConstructor
+@RequestMapping("/tutorials")
 public class TutorialController {
     private final TutorialService tutorialService;
 
-    @GetMapping("/home")
+    @GetMapping("")
     public String getAll(Model model,
                          @RequestParam(required = false) String keyword,
                          @RequestParam(defaultValue = "1") int page,
@@ -71,10 +71,10 @@ public class TutorialController {
         } catch (Exception e) {
             redirectAttributes.addAttribute("message", e.getMessage());
         }
-        return "redirect:/tutorials/home";
+        return "redirect:/tutorials";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/edit/{id}")
     public String editTutorial(@PathVariable("id") Integer id,
                                Model model, RedirectAttributes redirectAttributes) {
         try {
@@ -85,10 +85,10 @@ public class TutorialController {
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("message", e.getMessage());
         }
-        return "redirect:/tutorials/home";
+        return "redirect:/tutorials";
     }
 
-    @PostMapping("/tutorials/delete/{id}")
+    @PostMapping("/delete/{id}")
     public String deleteTutorial(@PathVariable("id") Integer id, Model model, RedirectAttributes redirectAttributes) {
         try {
             tutorialService.deletedById(id);
@@ -98,6 +98,6 @@ public class TutorialController {
             redirectAttributes.addFlashAttribute("message", e.getMessage());
         }
 
-        return "redirect:/tutorials/home";
+        return "redirect:/tutorials";
     }
 }
